@@ -9,6 +9,7 @@
 .heading {
     color: white;
     margin: 20px;
+    /* background-color: black; */
 }
 
 .container {
@@ -16,6 +17,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: black;
 }
 
 .game-container{
@@ -41,5 +43,20 @@
 
 .grid .live {
     background-color: black;
+}
+
+/* Btn Section */
+.btnGroup{
+    display: flex;
+    gap: 2em;
+    margin: 10px;
+}
+.colorBtn, 
+.eraseBtn{
+    background-color: white;
+    /* color: white; */
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 

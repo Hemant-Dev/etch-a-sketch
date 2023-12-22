@@ -1,6 +1,8 @@
 const container = document.querySelector('.container');
 const gameWindow = document.querySelector('.game-container');
 const gridSize = 6;
+const colorBtn = document.querySelector('.colorBtn');
+const eraseBtn = document.querySelector('.eraseBtn');
 
 
 //Created obj
@@ -26,17 +28,32 @@ function createRow(gridSize, row){
     }
 }
 
+//Logic to change Color when changeColor Btn is clicked
+let color = '';   //Global color var that it uses
+colorBtn.addEventListener('click', changeColor);
+function changeColor(e){
+    color = e.target.value;
+}
+function getColor(){
+    return color;
+}
 
 //Logic to change color on entry in the grid div
 
 let gridList = document.querySelectorAll('.grid-row');
-console.log(gridList);
+// console.log(gridList);
 Array.from(gridList);
 gridList.forEach((element) => {
     element.addEventListener('mouseover', () => {
-        element.style.backgroundColor = 'lime';
+        element.style.backgroundColor = getColor();
     });
 })
 
 
-
+//Logic to Reset the whole grid to initial state
+eraseBtn.addEventListener('click', reset);
+function reset(){
+    gridList.forEach((element) => {
+        element.style.backgroundColor = 'white';
+    });
+}
