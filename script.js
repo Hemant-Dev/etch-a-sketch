@@ -5,6 +5,8 @@ const eraseBtn = document.querySelector('.eraseBtn');
 const sixBtn = document.querySelector('.six');
 const twelveBtn = document.querySelector('.twelve');
 const twentyFourBtn = document.querySelector('.twentyFour');
+const colorWindow = document.querySelector('.colorWindow');
+
 
 let gridSize = 6;
 //Created obj
@@ -32,14 +34,29 @@ function createRow(gridSize, row){
 
 //Logic to change Color when changeColor Btn is clicked
 let color = 'red';   //Global color var that it uses
+colorWindow.style.backgroundColor = color;
 colorBtn.addEventListener('click', changeColor);
-function changeColor(e){
-    color = e.target.value;
+function changeColor(){
+    setColor();
+    colorWindow.style.backgroundColor = color;
 }
 function getColor(){
     return color;
 }
-
+//New Function to set color
+function setColor(){
+    const colorPalette = ['red','green','blue','yellow', 'white'];
+    if(color === colorPalette[0])
+        color = colorPalette[1];
+    else if(color === colorPalette[1])
+        color = colorPalette[2];
+    else if(color === colorPalette[2])
+        color = colorPalette[3];
+    else if(color === colorPalette[3])
+        color = colorPalette[4];
+    else if(color === colorPalette[4])
+        color = colorPalette[0];
+}
 //Logic to change color on entry in the grid div
 function getGrid(){
     const gridList = document.querySelectorAll('.grid-row');
@@ -119,3 +136,4 @@ function changeGridDimensions(){
     });
 
 }
+

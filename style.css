@@ -63,3 +63,9 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.colorWindow{
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 20px;
+}
